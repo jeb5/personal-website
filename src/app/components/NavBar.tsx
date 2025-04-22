@@ -1,4 +1,4 @@
-import ThemeToggle from "../ThemeToggle";
+import ThemeToggle from "./ThemeToggle";
 
 export default function NavBar() {
 	// Seperators are h-6, width 1px

@@ -1,0 +1,75 @@
+import { promises as fs } from "fs";
+import Project from "./Project";
+import Carousel from "./Carousel";
+
+type Project = {
+	name: string;
+	description: string;
+	links: {
+		type: string;
+		url: string;
+	}[];
+	image: string;
+	technologies_used: string[];
+};
+type ProjectsFile = {
+	projects: {
+		main: Project[];
+		other: Project[];
+	};
+	technologies: {
+		[id: string]: {
+			name: string;
+			icon: string;
+		};
+	};
+};
+
+export default async function Projects() {
+	const projects_file = await fs.readFile(process.cwd() + "/content/projects.json", "utf-8");
+	const projects_parsed: ProjectsFile = JSON.parse(projects_file);
+
+	const flattenTech = (projects: Project[]) =>
+		projects.map((project) => ({
+			...project,
+			technologies_used: project.technologies_used.map((technology) => projects_parsed.technologies[technology]),
+		}));
+
+	const main_projects = flattenTech(projects_parsed.projects.main);
+	const other_projects = flattenTech(projects_parsed.projects.other);
+
+	return (
+		<section className="flex flex-row justify-center px-20 mb-50">
+			<div className="max-w-[1000px]">
+				<div className="flex flex-row w-full items-center">
+					<h3 className="text-md mr-5">Projects</h3>
+					<hr className="h-[1px] grow bg-neutral-700" />
+				</div>
+				<div className="grid grid-cols-[repeat(3,1fr)] h-[400px] gap-6 mt-8 mb-12">
+					{main_projects.map((project) => (
+						<div className="h-full grow" key={project.name}>
+							<Project {...project} />
+						</div>
+					))}
+				</div>
+				<div className="flex flex-row w-full items-center">
+					<h3 className="text-md mr-5">More</h3>
+					<hr className="h-[1px] grow bg-neutral-700" />
+				</div>
+				<Carousel
+					className="grid h-[300px] gap-[24px] mt-8 snap-x scroll-smooth"
+					style={{ gridTemplateColumns: `repeat(${other_projects.length}, calc(25% - ${24 * (3 / 4)}px))` }}
+				>
+					{other_projects.map((project, index) => (
+						<div
+							className={`h-full grow snap-start ${index == 0 ? "first-el" : index == other_projects.length - 1 ? "last-el" : ""}`}
+							key={project.name}
+						>
+							<Project {...project} />
+						</div>
+					))}
+				</Carousel>
+			</div>
+		</section>
+	);
+}

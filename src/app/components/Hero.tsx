@@ -4,9 +4,9 @@ import { FaLinkedin, FaGithub } from "react-icons/fa6";
 import Button from "./Button";
 export default function Hero() {
 	return (
-		<div className="w-full px-20 py-20 flex justify-center">
-			<div className="flex flex-row justify-between">
-				<div className="pr-25 flex flex-col justify-between">
+		<div className="w-full px-20 pt-30 pb-50 flex flex-row justify-center">
+			<div className="flex flex-row justify-between w-full max-w-[1000px]">
+				<div className="pr-25 flex flex-col justify-between grow max-w-[580px]">
 					<div>
 						<h1 className="text-4xl font-medium mb-4 mt-4">Jeb Nicholson</h1>
 						<div className="text-lg">
@@ -39,7 +39,7 @@ export default function Hero() {
 						</div>
 					</div>
 				</div>
-				<div id="globe-anchor" className="h-[320px] w-[320px] bg-neutral-300 rounded-full"></div>
+				<div id="globe-anchor" className="h-[320px] w-[320px] min-h-[320px] min-w-[320px] bg-neutral-300 rounded-full"></div>
 			</div>
 		</div>
 	);

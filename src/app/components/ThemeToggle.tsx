@@ -12,7 +12,7 @@ export default function ThemeToggle() {
 	else {
 		return (
 			<button
-				className="text-2xl"
+				className="text-2xl cursor-pointer"
 				onClick={() => {
 					if (theme === "dark") setTheme("light");
 					else setTheme("dark");

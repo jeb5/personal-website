@@ -1,0 +1,153 @@
+{
+	"projects": {
+		"main": [
+			{
+				"name": "Honours Project",
+				"description": "I'm currently working on my honours project, involving using computer vision techniques to transform ascent footage from a camera swinging below a weather balloon into a stabilised 360 video showing the earth.",
+				"technologies_used": ["python", "opencv", "pytorch"],
+				"image": "/project_images/honours_project.jpeg",
+				"links": []
+			},
+			{
+				"name": "Sidetabs",
+				"description": "Sidetabs is the Firefox browser extension I develop. Designed to match the look and feel of Firefox's default horizontal tabs, Sidetabs adds a vertical tab bar, and allows the horizontal tab bar to be removed",
+				"technologies_used": ["javascript", "react"],
+				"image": "/project_images/sidetabs.jpeg",
+				"links": [
+					{
+						"type": "addon",
+						"url": "https://addons.mozilla.org/en-US/firefox/addon/sidetabs/"
+					},
+					{
+						"type": "github",
+						"url": "https://github.com/jeb5/Sidetabs"
+					}
+				]
+			},
+			{
+				"name": "Binge Benchmark",
+				"description": "A website for finding out whether a TV show is worth sticking with. Does it get better? Using episode rating data from trakt.tv, and tv show metadata from tmdb.org, users can view ratings graphs, to find the public consensus on the quality of a show.",
+				"technologies_used": ["javascript", "react", "nextjs"],
+				"image": "/project_images/binge_benchmark.jpeg",
+				"links": [
+					{
+						"type": "github",
+						"url": "https://github.com/jeb5/bingebenchmark"
+					}
+				]
+			}
+		],
+		"other": [
+			{
+				"name": "Promptle",
+				"description": "Prompt the AI to say the word of the day",
+				"technologies_used": ["javascript", "react", "nextjs", "openai"],
+				"image": "/project_images/promptle.png",
+				"links": [
+					{
+						"type": "github",
+						"url": "http://github.com/jeb5/promptle"
+					}
+				]
+			},
+			{
+				"name": "Youtube Subs RSS",
+				"description": "A simple script for generating OPML files of RSS feeds for your Youtube subscriptions",
+				"technologies_used": ["javascript"],
+				"image": "/project_images/youtube_subs_rss.png",
+				"links": [
+					{
+						"type": "github",
+						"url": "https://github.com/jeb5/YouTube-Subscriptions-RSS"
+					}
+				]
+			},
+			{
+				"name": "Casio-Basic Apps",
+				"description": "A collection of apps and games for the Casio fx9860 series of calculators",
+				"technologies_used": [],
+				"image": "/project_images/casio_basic_apps.png",
+				"links": [
+					{
+						"type": "github",
+						"url": "https://github.com/jeb5/Casio-Calculator-FX9860-Apps"
+					}
+				]
+			},
+			{
+				"name": "Mandelbrot Explorer",
+				"description": "A simple Java GUI program for exploring the Mandelbrot set",
+				"technologies_used": ["java"],
+				"image": "/project_images/mandelbrot_explorer.jpeg",
+				"links": [
+					{
+						"type": "github",
+						"url": "https://github.com/jeb5/mandelbrot-explorer"
+					}
+				]
+			},
+			{
+				"name": "Login Languish",
+				"description": "A game made for a university project",
+				"technologies_used": ["cpp", "react"],
+				"image": "/project_images/login_languish.png",
+				"links": [
+					{
+						"type": "github",
+						"url": "https://github.com/LockednCoded/LoginLanguish"
+					}
+				]
+			},
+			{
+				"name": "This Website",
+				"description": "Built using React, Next.js, and Tailwind CSS. Hosted as a static site using Github Pages.",
+				"image": "/project_images/website.jpeg",
+				"technologies_used": ["javascript", "react", "nextjs"],
+				"links": [
+					{
+						"type": "github",
+						"url": "https://github.com/jeb5/jeb-website"
+					}
+				]
+			}
+		]
+	},
+	"technologies": {
+		"python": {
+			"name": "Python",
+			"icon": "/tech_images/python.svg"
+		},
+		"javascript": {
+			"name": "JavaScript",
+			"icon": "/tech_images/javascript.svg"
+		},
+		"react": {
+			"name": "React",
+			"icon": "/tech_images/react.svg"
+		},
+		"nextjs": {
+			"name": "Next.js",
+			"icon": "/tech_images/nextjs.svg"
+		},
+		"pytorch": {
+			"name": "PyTorch",
+			"icon": "/tech_images/pytorch.svg"
+		},
+		"opencv": {
+			"name": "OpenCV",
+			"icon": "/tech_images/opencv.svg"
+		},
+		"cpp": {
+			"name": "C++",
+			"icon": "/tech_images/cpp.svg"
+		},
+		"java": {
+			"name": "Java",
+			"icon": "/tech_images/java.svg"
+		},
+		"openai": {
+			"name": "OpenAI API",
+			"icon": "/tech_images/openai.svg"
+		}
+	}
+}
