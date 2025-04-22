@@ -17,7 +17,7 @@ export default function Carousel(props: React.HTMLProps<HTMLDivElement>) {
 	useEffect(() => {
 		if (!containerRef.current) return;
 		const observer = new IntersectionObserver(handleIntersection, {
-			threshold: 0.9,
+			threshold: 1.0,
 			root: containerRef.current,
 		});
 		for (const child of containerRef.current.children) {

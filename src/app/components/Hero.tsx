@@ -2,10 +2,13 @@ import { GoDownload } from "react-icons/go";
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
 
 import Button from "./Button";
-export default function Hero() {
+export default function Hero({ CVURL }: { CVURL: string }) {
 	return (
-		<div className="w-full px-20 pt-30 pb-50 flex flex-row justify-center">
-			<div className="flex flex-row justify-between w-full max-w-[1000px]">
+		<div
+			id="about"
+			className="w-full pb-[80px] px-20 flex flex-row justify-center h-[calc(90vh-100px)] items-center max-h-[700px] min-w-[900px] min-h-[420px]"
+		>
+			<div className="flex flex-row justify-between w-full max-w-[980px]">
 				<div className="pr-25 flex flex-col justify-between grow max-w-[580px]">
 					<div>
 						<h1 className="text-4xl font-medium mb-4 mt-4">Jeb Nicholson</h1>
@@ -20,11 +23,7 @@ export default function Hero() {
 					</div>
 					<div className="flex flex-row justify-between items-end mt-4 mb-4">
 						<div className="flex flex-row gap-4">
-							<Button
-								className=""
-								href="https://images.pexels.com/photos/1319515/pexels-photo-1319515.jpeg?cs=srgb&dl=pexels-magda-ehlers-pexels-1319515.jpg&fm=jpg"
-								download
-							>
+							<Button className="" href={CVURL} download>
 								CV <GoDownload className="ml-2" />
 							</Button>
 							<Button href="mailto:contact@jebnicholson.com">Email me</Button>

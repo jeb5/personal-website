@@ -39,30 +39,41 @@ export default async function Projects() {
 	const other_projects = flattenTech(projects_parsed.projects.other);
 
 	return (
-		<section className="flex flex-row justify-center px-20 mb-50">
-			<div className="max-w-[1000px]">
+		<section className="flex flex-row justify-center px-20 mb-50" id="projects">
+			<div className="max-w-[1000px] overflow-hidden">
 				<div className="flex flex-row w-full items-center">
 					<h3 className="text-md mr-5">Projects</h3>
 					<hr className="h-[1px] grow bg-neutral-700" />
 				</div>
-				<div className="grid grid-cols-[repeat(3,1fr)] h-[400px] gap-6 mt-8 mb-12">
+				{/* <div className="flex flex-row h-[400px] gap-6 mt-8 mb-12 overflow-x-scroll">
 					{main_projects.map((project) => (
-						<div className="h-full grow" key={project.name}>
+						<div className="h-full flex-1 min-w-[290px]" key={project.name}>
 							<Project {...project} />
 						</div>
 					))}
-				</div>
+				</div> */}
+				<Carousel className="flex flex-row h-[410px] gap-6 mt-8 snap-x scroll-smooth mb-12">
+					{main_projects.map((project, index) => (
+						<div
+							className={`h-full flex-1 min-w-[290px] snap-start ${
+								index == 0 ? "first-el" : index == main_projects.length - 1 ? "last-el" : ""
+							}`}
+							key={project.name}
+						>
+							<Project {...project} />
+						</div>
+					))}
+				</Carousel>
 				<div className="flex flex-row w-full items-center">
 					<h3 className="text-md mr-5">More</h3>
 					<hr className="h-[1px] grow bg-neutral-700" />
 				</div>
-				<Carousel
-					className="grid h-[300px] gap-[24px] mt-8 snap-x scroll-smooth"
-					style={{ gridTemplateColumns: `repeat(${other_projects.length}, calc(25% - ${24 * (3 / 4)}px))` }}
-				>
+				<Carousel className="flex flex-row h-[300px] gap-[24px] mt-8 snap-x scroll-smooth">
 					{other_projects.map((project, index) => (
 						<div
-							className={`h-full grow snap-start ${index == 0 ? "first-el" : index == other_projects.length - 1 ? "last-el" : ""}`}
+							className={`h-full flex-1 min-w-[220px] snap-start ${
+								index == 0 ? "first-el" : index == other_projects.length - 1 ? "last-el" : ""
+							}`}
 							key={project.name}
 						>
 							<Project {...project} />

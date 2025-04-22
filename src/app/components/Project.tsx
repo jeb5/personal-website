@@ -21,7 +21,7 @@ export default function Project(props: ProjectProps) {
 				<Image src={props.image} alt={props.name} className="object-cover" fill={true} />
 			</div>
 			<h4 className="text-lg leading-[130%] font-semibold mx-3 mt-3">{props.name}</h4>
-			<p className="text-sm overflow-y-scroll no-scrollbar mx-3 mt-2">{props.description}</p>
+			<p className="text-sm overflow-y-hidden no-scrollbar mx-3 mt-2">{props.description}</p>
 			<div className="flex flex-row p-3">
 				{props.technologies_used.map((technology) => (
 					<div className="flex flex-row items-center mr-1" key={technology.name} title={technology.name}>
