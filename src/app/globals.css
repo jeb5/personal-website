@@ -10,6 +10,11 @@
   }
 }
 
+@theme {
+  --breakpoint-mdlg: 56rem;
+  --breakpoint-xsm: 32rem;
+}
+
 :root {
   --background-light: #fffaf0;
   --foreground-light: #171717;

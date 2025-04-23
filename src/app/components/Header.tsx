@@ -1,7 +1,7 @@
 "use client";
 import ThemeToggle from "./ThemeToggle";
 
-export default function NavBar({ CVURL }: { CVURL: string }) {
+export default function Header({ CVURL }: { CVURL: string }) {
 	const scrollToId = (id: string) => {
 		const element = document.getElementById(id);
 		if (element) {
@@ -9,7 +9,7 @@ export default function NavBar({ CVURL }: { CVURL: string }) {
 		}
 	};
 	return (
-		<header className="flex flex-row justify-between p-8 sticky top-0 z-10">
+		<header className="flex flex-row justify-between p-8 top-0 z-10">
 			<ThemeToggle />
 			<nav>
 				<ul className="flex flex-row gap-4">
@@ -26,7 +26,7 @@ export default function NavBar({ CVURL }: { CVURL: string }) {
 					</li>
 					<div className="h-6 w-[1px] bg-gray-500" />
 					<li>
-						<a href={CVURL} download>
+						<a className="select-none" href={CVURL} download>
 							CV
 						</a>
 					</li>

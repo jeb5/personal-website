@@ -10,8 +10,8 @@
 			},
 			{
 				"name": "Sidetabs",
-				"description": "Sidetabs is the Firefox browser extension I develop. Designed to match the look and feel of Firefox's default horizontal tabs, Sidetabs adds a vertical tab bar, and allows the horizontal tab bar to be removed",
-				"technologies_used": ["javascript", "react"],
+				"description": "Sidetabs is the Firefox browser extension I develop. Designed to match the look and feel of Firefox's default horizontal tabs, Sidetabs adds a vertical tab bar, and allows the horizontal tab bar to be removed.",
+				"technologies_used": ["typescript", "react"],
 				"image": "/project_images/sidetabs.jpeg",
 				"links": [
 					{
@@ -26,8 +26,8 @@
 			},
 			{
 				"name": "Binge Benchmark",
-				"description": "A website for finding out whether a TV show is worth sticking with. Does it get better? Using episode rating data from trakt.tv, and tv show metadata from tmdb.org, users can view ratings graphs, to find the public consensus on the quality of a show.",
-				"technologies_used": ["javascript", "react", "nextjs"],
+				"description": "A website for finding out whether a TV show is worth sticking with. Using rating data from trakt.tv, and metadata from tmdb.org, users can view ratings graphs, to find the public consensus on the quality of a show.",
+				"technologies_used": ["typescript", "react", "nextjs"],
 				"image": "/project_images/binge_benchmark.jpeg",
 				"links": [
 					{
@@ -41,7 +41,7 @@
 			{
 				"name": "Promptle",
 				"description": "Prompt the AI to say the word of the day",
-				"technologies_used": ["javascript", "react", "nextjs", "openai"],
+				"technologies_used": ["typescript", "react", "nextjs", "openai"],
 				"image": "/project_images/promptle.png",
 				"links": [
 					{
@@ -75,18 +75,6 @@
 				]
 			},
 			{
-				"name": "Mandelbrot Explorer",
-				"description": "A simple Java GUI program for exploring the Mandelbrot set",
-				"technologies_used": ["java"],
-				"image": "/project_images/mandelbrot_explorer.jpeg",
-				"links": [
-					{
-						"type": "github",
-						"url": "https://github.com/jeb5/mandelbrot-explorer"
-					}
-				]
-			},
-			{
 				"name": "Login Languish",
 				"description": "A game made for a university project",
 				"technologies_used": ["cpp", "react"],
@@ -99,10 +87,17 @@
 				]
 			},
 			{
+				"name": "Mandelbrot Explorer",
+				"description": "A simple Java GUI app for exploring the Mandelbrot set",
+				"technologies_used": ["java"],
+				"image": "/project_images/mandelbrot_explorer.jpeg",
+				"links": []
+			},
+			{
 				"name": "This Website",
-				"description": "Built using React, Next.js, and Tailwind CSS. Hosted as a static site using Github Pages.",
+				"description": "Built using React, Next.js, and Tailwind CSS. Hosted with Github Pages.",
 				"image": "/project_images/website.jpeg",
-				"technologies_used": ["javascript", "react", "nextjs"],
+				"technologies_used": ["typescript", "react", "nextjs"],
 				"links": [
 					{
 						"type": "github",
@@ -148,6 +143,10 @@
 		"openai": {
 			"name": "OpenAI API",
 			"icon": "/tech_images/openai.svg"
+		},
+		"typescript": {
+			"name": "Typescript",
+			"icon": "/tech_images/typescript.svg"
 		}
 	}
 }

@@ -17,8 +17,9 @@ export default function ThemeToggle() {
 					if (theme === "dark") setTheme("light");
 					else setTheme("dark");
 				}}
+				title="Toggle Dark Mode"
 			>
-				{theme === "dark" ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
+				{theme === "dark" ? <MdOutlineDarkMode aria-hidden /> : <MdOutlineLightMode aria-hidden />}
 			</button>
 		);
 	}

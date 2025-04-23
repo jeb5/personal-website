@@ -39,7 +39,7 @@ export default async function Projects() {
 	const other_projects = flattenTech(projects_parsed.projects.other);
 
 	return (
-		<section className="flex flex-row justify-center px-20 mb-50" id="projects">
+		<section className="flex flex-row justify-center px-10 sm:px-20 mb-10" id="projects">
 			<div className="max-w-[1000px] overflow-hidden">
 				<div className="flex flex-row w-full items-center">
 					<h3 className="text-md mr-5">Projects</h3>
@@ -52,10 +52,10 @@ export default async function Projects() {
 						</div>
 					))}
 				</div> */}
-				<Carousel className="flex flex-row h-[410px] gap-6 mt-8 snap-x scroll-smooth mb-12">
+				<Carousel className="flex flex-row h-[320px] xsm:h-[410px] gap-6 mt-8 snap-x scroll-smooth mb-12">
 					{main_projects.map((project, index) => (
 						<div
-							className={`h-full flex-1 min-w-[290px] snap-start ${
+							className={`h-full flex-1 min-w-[230px] xsm:min-w-[290px] snap-start ${
 								index == 0 ? "first-el" : index == main_projects.length - 1 ? "last-el" : ""
 							}`}
 							key={project.name}
@@ -68,10 +68,10 @@ export default async function Projects() {
 					<h3 className="text-md mr-5">More</h3>
 					<hr className="h-[1px] grow bg-neutral-700" />
 				</div>
-				<Carousel className="flex flex-row h-[300px] gap-[24px] mt-8 snap-x scroll-smooth">
+				<Carousel className="flex flex-row h-[200px] xsm:h-[300px] gap-[24px] mt-8 snap-x scroll-smooth">
 					{other_projects.map((project, index) => (
 						<div
-							className={`h-full flex-1 min-w-[220px] snap-start ${
+							className={`h-full flex-1 min-w-[190px] xsm:min-w-[220px] snap-start ${
 								index == 0 ? "first-el" : index == other_projects.length - 1 ? "last-el" : ""
 							}`}
 							key={project.name}
