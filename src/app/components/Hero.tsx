@@ -24,10 +24,12 @@ export default function Hero({ CVURL }: { CVURL: string }) {
 					</div>
 					<div className="flex flex-col xsm:flex-row xsm:justify-between justify-center xsm:items-end mt-6 mb-4 gap-y-6">
 						<div className="flex flex-row gap-4">
-							<Button className="" href={CVURL} download>
+							<Button className="grow xsm:grow-0" href={CVURL} download>
 								CV <GoDownload className="ml-2" aria-hidden />
 							</Button>
-							<Button href="mailto:contact@jebnicholson.com">Email me</Button>
+							<Button className="grow xsm:grow-0" href="mailto:contact@jebnicholson.com">
+								Email me
+							</Button>
 						</div>
 						<div className="flex flex-row gap-4 mb-1 text-3xl opacity-85">
 							<a href="https://github.com/jeb5" target="_blank" rel="noopener" aria-label="GitHub">

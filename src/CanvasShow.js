@@ -9,6 +9,7 @@ export default class CanvasShow {
 		this.spherePoints = this.generateSpherePoints(700);
 		this.pointLocations = new Array(700);
 		this.setMousePosition(-1000, -1000);
+		this.darkMode = false;
 	}
 	setCurioPosition(x, y) {
 		this.curio_x = x;
@@ -22,6 +23,9 @@ export default class CanvasShow {
 		this.canvas.width = width;
 		this.canvas.height = height;
 	}
+	setDarkMode(dark) {
+		this.darkMode = dark;
+	}
 	setMousePosition(x, y) {
 		this.mouse_x = x;
 		this.mouse_y = y;
@@ -32,12 +36,13 @@ export default class CanvasShow {
 		const gr = Math.PI * (Math.sqrt(5) - 1)
 		for (let i = 0; i < P; i++) {
 			const k = i + 0.5
-			const lat = k * gr
-			const long = (Math.acos(1 - 2 * k / P))
+			const lat = k * gr //+ Math.random() * 2 / Math.PI
+			const long = (Math.acos(1 - 2 * k / P)) //+ Math.random() * 2 / Math.PI
+			const radius = Math.random() * 0.4 - 0.2 + 1.0
 			const x = Math.cos(lat) * Math.sin(long)
 			const y = Math.sin(lat) * Math.sin(long)
 			const z = Math.cos(long)
-			points[i] = [x, y, z]
+			points[i] = [x, y, z, radius]
 		}
 
 		return points
@@ -45,9 +50,9 @@ export default class CanvasShow {
 	start() {
 		this.lastTime = performance.now();
 		this.angularVelocity = {
-			x: 0.2,
-			y: 0.25,
-			z: 0.03
+			x: 0.15,
+			y: 0.18,
+			z: 0.02
 		}
 		this.rotation = {
 			x: 0,
@@ -59,7 +64,7 @@ export default class CanvasShow {
 	}
 	render() {
 		const time = performance.now();
-		const deltaT = (time - this.lastTime) / 1000;
+		const deltaT = Math.min((time - this.lastTime) / 1000, 0.2);
 		this.lastTime = time;
 
 		this.rotation.x += this.angularVelocity.x * deltaT;
@@ -73,36 +78,50 @@ export default class CanvasShow {
 		const roll = this.rotation.z;
 
 
-		this.ctx.reset();
+		//The ctx.reset() sometimes doesn't work on safari, so we do this:
+		this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		const [halfWidth, halfHeight] = [this.curio_width / 2, this.curio_height / 2];
 		const [middleX, middleY] = [this.curio_x + halfWidth, this.curio_y + halfHeight]
 		let i = 0;
 		for (const point of this.spherePoints) {
 
-			let [x, y, z] = point;
+			let [x, y, z, r] = point;
 			[x, y, z] = rotatePoint([x, y, z], [yaw, pitch, roll]);
 
-			const radius = 1.2;
-			this.ctx.fillStyle = `rgba(0, 0, 0, ${z > 0 ? 1 : 0.5})`;
-
-			x = x * halfWidth + middleX;
-			y = y * halfWidth + middleY;
-			const distToMouse = Math.sqrt(Math.pow(this.mouse_x - x, 2) + Math.pow(this.mouse_y - y, 2));
-			x -= (this.mouse_x - x) * Math.pow(0.5, distToMouse / 30);
-			y -= (this.mouse_y - y) * Math.pow(0.5, distToMouse / 30);
+			const radius = 1.1 + z * 0.5;
+			if (this.darkMode) this.ctx.fillStyle = `rgba(255, 255, 255, ${z > 0 ? 1 : 0.5})`;
+			else this.ctx.fillStyle = `rgba(0, 0, 0, ${z > 0 ? 1 : 0.5})`;
 
 			if (this.firstTime) {
+				x = x * halfWidth * 20 + middleX;
+				y = y * halfWidth * 20 + middleY;
 				this.pointLocations[i] = [x, y, 0, 0];
 			} else {
-				let [oldX, oldY, vx, vy] = this.pointLocations[i];
-				const speed = 0.05;
-				const dx = x - oldX;
-				const dy = y - oldY;
-				vx = vx * 0.9 + dx * speed;
-				vy = vy * 0.9 + dy * speed;
-				x = oldX + vx;
-				y = oldY + vy;
-				this.pointLocations[i] = [x, y, vx, vy];
+				let px = x * halfWidth + middleX;
+				let py = y * halfWidth + middleY;
+
+				let distToMouse = Math.sqrt(Math.pow(this.mouse_x - px, 2) + Math.pow(this.mouse_y - py, 2));
+				distToMouse -= 200;
+				distToMouse = Math.max(0, distToMouse);
+				let a = Math.pow(0.5, distToMouse / 50);
+				let radius = r * (1 - a) + a * 1;
+				x = x * radius * halfWidth + middleX;
+				y = y * radius * halfWidth + middleY;
+
+				// x += (this.mouse_x - x) * Math.pow(0.5, distToMouse / 50);
+				// y += (this.mouse_y - y) * Math.pow(0.5, distToMouse / 50);
+				// let [oldX, oldY, vx, vy] = this.pointLocations[i];
+				// const speed = 0.05;
+				// const dx = x - oldX;
+				// const dy = y - oldY;
+				// vx = vx + dx * speed + -vx * 0.05;
+				// vy = vy + dy * speed + -vy * 0.05;
+				// x = oldX + vx;
+				// y = oldY + vy;
+				// this.pointLocations[i] = [x, y, vx, vy];
+				// x = oldX + (x - oldX) * deltaT * 5;
+				// y = oldY + (y - oldY) * deltaT * 5;
+				this.pointLocations[i] = [x, y, 0, 0];
 			}
 
 			this.ctx.beginPath();
@@ -135,4 +154,12 @@ function rotatePoint(point, rotation) {
 function drawDot(x, y, radius, ctx) {
 	const rh = radius / 2;
 	ctx.ellipse(x + rh, y + rh, radius, radius, 0, 0, Math.PI * 2)
+	// // Draw triangle
+	// const c = Math.SQRT2
+	// const r = radius * 2;
+	// ctx.moveTo(x, y);
+	// ctx.lineTo(x + r, y + c * r);
+	// ctx.lineTo(x - r, y + c * r);
+	// ctx.lineTo(x, y);
+
 }

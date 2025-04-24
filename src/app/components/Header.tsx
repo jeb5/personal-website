@@ -9,7 +9,7 @@ export default function Header({ CVURL }: { CVURL: string }) {
 		}
 	};
 	return (
-		<header className="flex flex-row justify-between p-8 top-0 z-10">
+		<header className="flex flex-row justify-between p-8">
 			<ThemeToggle />
 			<nav>
 				<ul className="flex flex-row gap-4">

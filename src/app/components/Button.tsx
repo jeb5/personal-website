@@ -10,7 +10,7 @@ export default function Button({
 	} & React.AnchorHTMLAttributes<HTMLAnchorElement>
 >) {
 	return (
-		<a className={`rounded-full border-1 text-md flex flex-row items-center px-6 py-1.5 ${className}`} {...anchorAttributes}>
+		<a className={`rounded-full border-1 text-md flex flex-row items-center justify-center px-6 py-1.5 ${className}`} {...anchorAttributes}>
 			{children}
 		</a>
 	);

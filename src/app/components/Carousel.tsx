@@ -41,7 +41,7 @@ export default function Carousel(props: React.HTMLProps<HTMLDivElement>) {
 					aria-hidden="true"
 					onClick={() =>
 						containerRef.current?.scrollBy({
-							left: -containerRef.current.clientWidth / containerRef.current.children.length,
+							left: -containerRef.current.scrollWidth / containerRef.current.children.length,
 							behavior: "smooth",
 						})
 					}
@@ -54,7 +54,7 @@ export default function Carousel(props: React.HTMLProps<HTMLDivElement>) {
 					aria-hidden="true"
 					onClick={() =>
 						containerRef.current?.scrollBy({
-							left: containerRef.current.clientWidth / containerRef.current.children.length,
+							left: containerRef.current.scrollWidth / containerRef.current.children.length,
 							behavior: "smooth",
 						})
 					}

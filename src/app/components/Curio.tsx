@@ -1,11 +1,13 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import CanvasShow from "../../CanvasShow";
+import { ThemeContext } from "./ThemeProvider";
 
 export default function Curio() {
 	const curioPlaceholderRef = useRef<HTMLDivElement>(null);
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const canvasShowRef = useRef<CanvasShow | null>(null);
+	const theme = useContext(ThemeContext).theme;
 	useEffect(() => {
 		if (!curioPlaceholderRef.current) return;
 		if (!canvasRef.current) return;
@@ -53,6 +55,11 @@ export default function Curio() {
 			window.removeEventListener("mousemove", mouseMoveCallback);
 		};
 	}, [curioPlaceholderRef, canvasRef]);
+
+	useEffect(() => {
+		if (!canvasShowRef.current) return;
+		canvasShowRef.current.setDarkMode(theme === "dark");
+	}, [theme]);
 
 	return (
 		<>

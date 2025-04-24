@@ -52,7 +52,7 @@
 			},
 			{
 				"name": "Youtube Subs RSS",
-				"description": "A simple script for generating OPML files of RSS feeds for your Youtube subscriptions",
+				"description": "A simple script for creating OPML files of RSS feeds for your Youtube subscriptions",
 				"technologies_used": ["javascript"],
 				"image": "/project_images/youtube_subs_rss.png",
 				"links": [
