@@ -36,14 +36,21 @@ export default function Curio() {
 			}
 		};
 		possibleChangeCallback();
-		canvasShowRef.current.render();
+		canvasShowRef.current.start();
 
 		window.addEventListener("resize", possibleChangeCallback);
 		window.addEventListener("scroll", possibleChangeCallback);
 
+		const mouseMoveCallback = (e: MouseEvent) => {
+			if (!canvasShowRef.current) return;
+			canvasShowRef.current.setMousePosition(e.clientX, e.clientY);
+		};
+		window.addEventListener("mousemove", mouseMoveCallback);
+
 		return () => {
 			window.removeEventListener("resize", possibleChangeCallback);
 			window.removeEventListener("scroll", possibleChangeCallback);
+			window.removeEventListener("mousemove", mouseMoveCallback);
 		};
 	}, [curioPlaceholderRef, canvasRef]);
 
