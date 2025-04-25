@@ -4,7 +4,7 @@ import { FaChevronRight } from "react-icons/fa6";
 import { FaChevronLeft } from "react-icons/fa6";
 
 export default function Carousel(props: React.HTMLProps<HTMLDivElement>) {
-	let { className, ...divProps } = props;
+	const { className, ...divProps } = props;
 	const containerRef = useRef<HTMLDivElement>(null);
 	const [firstVisible, setFirstVisible] = useState(false);
 	const [lastVisible, setLastVisible] = useState(false);
@@ -28,10 +28,11 @@ export default function Carousel(props: React.HTMLProps<HTMLDivElement>) {
 		return () => observer.disconnect();
 	}, [containerRef]);
 
-	if (!lastVisible && !firstVisible) className = `${className} fade-both-edges`;
-	else if (!firstVisible) className = `${className} fade-left-edge`;
-	else if (!lastVisible) className = `${className} fade-right-edge`;
-	className = `${className} overflow-x-scroll no-scrollbar`;
+	let newClassName = className || "";
+	if (!lastVisible && !firstVisible) newClassName = `${newClassName} fade-both-edges`;
+	else if (!firstVisible) newClassName = `${newClassName} fade-left-edge`;
+	else if (!lastVisible) newClassName = `${newClassName} fade-right-edge`;
+	newClassName = `${className} overflow-x-scroll no-scrollbar`;
 
 	return (
 		<div className="relative">
@@ -47,7 +48,7 @@ export default function Carousel(props: React.HTMLProps<HTMLDivElement>) {
 					}
 				/>
 			)}
-			<div className={className} {...divProps} ref={containerRef} />
+			<div className={newClassName} {...divProps} ref={containerRef} />
 			{!lastVisible && (
 				<FaChevronRight
 					className="absolute right-0 top-1/2 -translate-y-1/2 text-3xl opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10"

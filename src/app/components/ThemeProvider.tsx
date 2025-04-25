@@ -6,7 +6,8 @@ const isServer = typeof window === "undefined";
 type theme = "light" | "dark";
 export const ThemeContext = createContext({
 	theme: "dark" as theme,
-	setTheme: (theme: theme) => {},
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	setTheme: (Theme: theme) => {},
 });
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
@@ -14,7 +15,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 	const [browserMode, setBrowserMode] = useState<theme>("light"); // what the browser wants
 	useEffect(() => {
 		if (isServer) return;
-		let forced = !!localStorage.getItem("theme");
+		const forced = !!localStorage.getItem("theme");
 		if (forced) {
 			setForcedMode(localStorage.getItem("theme") as theme);
 			return;
@@ -27,7 +28,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 			if (e.matches) setBrowserMode("dark");
 			else setBrowserMode("light");
 		});
-	});
+	}, []);
 
 	const setTheme = (theme: theme) => {
 		setForcedMode(theme);

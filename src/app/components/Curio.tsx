@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import CanvasShow from "../../CanvasShow";
 import { ThemeContext } from "./ThemeProvider";
 
