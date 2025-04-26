@@ -107,20 +107,6 @@ export default class CanvasShow {
 				let radius = r * (1 - a) + a * 1;
 				x = x * radius * halfWidth + middleX;
 				y = y * radius * halfWidth + middleY;
-
-				// x += (this.mouse_x - x) * Math.pow(0.5, distToMouse / 50);
-				// y += (this.mouse_y - y) * Math.pow(0.5, distToMouse / 50);
-				// let [oldX, oldY, vx, vy] = this.pointLocations[i];
-				// const speed = 0.05;
-				// const dx = x - oldX;
-				// const dy = y - oldY;
-				// vx = vx + dx * speed + -vx * 0.05;
-				// vy = vy + dy * speed + -vy * 0.05;
-				// x = oldX + vx;
-				// y = oldY + vy;
-				// this.pointLocations[i] = [x, y, vx, vy];
-				// x = oldX + (x - oldX) * deltaT * 5;
-				// y = oldY + (y - oldY) * deltaT * 5;
 				this.pointLocations[i] = [x, y, 0, 0];
 			}
 
