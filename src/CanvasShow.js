@@ -88,7 +88,7 @@ export default class CanvasShow {
 			let [x, y, z, r] = point;
 			[x, y, z] = rotatePoint([x, y, z], [yaw, pitch, roll]);
 
-			const radius = 1.1 + z * 0.5;
+			const dotRadius = (1.1 + z * 0.5) * 1;
 			if (this.darkMode) this.ctx.fillStyle = `rgba(255, 255, 255, ${z > 0 ? 1 : 0.5})`;
 			else this.ctx.fillStyle = `rgba(0, 0, 0, ${z > 0 ? 1 : 0.5})`;
 
@@ -127,7 +127,7 @@ export default class CanvasShow {
 			this.ctx.beginPath();
 			// if (x > 0) {
 			// const radius = 3 * Math.min(Math.abs(x), 0.5)
-			drawDot(x, y, radius, this.ctx);
+			drawDot(x, y, dotRadius, this.ctx);
 			// }
 			this.ctx.fill();
 			i++;

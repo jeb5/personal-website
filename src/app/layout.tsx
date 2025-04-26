@@ -10,6 +10,7 @@ const rubik = Rubik({
 
 export const metadata: Metadata = {
 	title: "Jeb Nicholson",
+	description: "Jeb Nicholson's personal website and portfolio",
 };
 
 export default function RootLayout({
