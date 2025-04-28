@@ -10,6 +10,7 @@ export default function Carousel(props: React.HTMLProps<HTMLDivElement>) {
 	const [lastVisible, setLastVisible] = useState(false);
 
 	const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+		console.log(entries);
 		entries.forEach((entry) => {
 			if (entry.target.classList.contains("first-el")) setFirstVisible(entry.isIntersecting);
 			if (entry.target.classList.contains("last-el")) setLastVisible(entry.isIntersecting);
@@ -19,7 +20,7 @@ export default function Carousel(props: React.HTMLProps<HTMLDivElement>) {
 	useEffect(() => {
 		if (!containerRef.current) return;
 		const observer = new IntersectionObserver(handleIntersection, {
-			threshold: 0.9,
+			threshold: 1.0,
 			root: containerRef.current,
 		});
 		for (const child of containerRef.current.children) {
@@ -32,7 +33,7 @@ export default function Carousel(props: React.HTMLProps<HTMLDivElement>) {
 	if (!lastVisible && !firstVisible) newClassName = `${newClassName} fade-both-edges`;
 	else if (!firstVisible) newClassName = `${newClassName} fade-left-edge`;
 	else if (!lastVisible) newClassName = `${newClassName} fade-right-edge`;
-	newClassName = `${className} overflow-x-scroll no-scrollbar`;
+	newClassName = `${newClassName} overflow-x-scroll no-scrollbar`;
 
 	return (
 		<div className="relative">

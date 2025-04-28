@@ -55,7 +55,7 @@ export default async function Projects() {
 				<Carousel className="flex flex-row h-[320px] xsm:h-[410px] gap-6 mt-8 scroll-smooth mb-12 snap-x">
 					{main_projects.map((project, index) => (
 						<div
-							className={`h-full flex-1 min-w-[230px] xsm:min-w-[290px] snap-center xsm:snap-start ${
+							className={`h-full flex-1 min-w-[250px] lg:min-w-[230px] xsm:min-w-[290px] lg:grow snap-center xsm:snap-start ${
 								index == 0 ? "first-el" : index == main_projects.length - 1 ? "last-el" : ""
 							}`}
 							key={project.name}
