@@ -26,7 +26,7 @@ export default function Header({ CVURL }: { CVURL: string }) {
 					</li>
 					<div className="h-6 w-[1px] bg-gray-500" />
 					<li>
-						<a className="select-none" href={CVURL} download>
+						<a className="select-none" href={CVURL} download="Jeb Nicholson - CV.pdf">
 							CV
 						</a>
 					</li>
