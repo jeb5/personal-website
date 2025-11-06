@@ -100,9 +100,9 @@
 				"technologies_used": ["typescript", "react", "nextjs"],
 				"links": [
 					{
-						"type": "github",
-						"url": "https://github.com/jeb5/jeb-website"
-					}
+            "type": "github",
+            "url": "https://github.com/jeb5/personal-website"
+          }
 				]
 			}
 		]
