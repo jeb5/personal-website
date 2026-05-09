@@ -2,12 +2,12 @@
 	"projects": {
 		"main": [
 			{
-				"name": "Honours Project",
-				"description": "I'm currently working on my honours project, involving using computer vision techniques to transform ascent footage from a camera swinging below a weather balloon into a stabilised 360 video showing the earth.",
-				"technologies_used": ["python", "opencv", "pytorch"],
-				"image": "/project_images/honours_project.jpeg",
-				"links": []
-			},
+        "name": "Honours Project",
+        "description": "My 4th year university honours project, involving using computer vision techniques to transform ascent footage from a camera swinging below a weather balloon into a stabilised 360 video showing the earth.",
+        "technologies_used": ["python", "opencv", "pytorch"],
+        "image": "/project_images/honours_project.jpeg",
+        "links": []
+      },
 			{
 				"name": "Sidetabs",
 				"description": "Sidetabs is the Firefox browser extension I develop. Designed to match the look and feel of Firefox's default horizontal tabs, Sidetabs adds a vertical tab bar, and allows the horizontal tab bar to be removed.",

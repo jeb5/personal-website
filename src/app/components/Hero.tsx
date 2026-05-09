@@ -14,12 +14,14 @@ export default function Hero({ RESUME_URL }: { RESUME_URL: string }) {
           <div>
             <h1 className="text-4xl font-medium mb-4 mt-4">Jeb Nicholson</h1>
             <div className="text-lg">
-              <p className="pb-4">Student, Aspiring Software Engineer</p>
+              <p className="pb-4">Junior Software Engineer</p>
               <p>
-                BSc Computer Science at The University of Otago
-                <br />
-                Currently working towards an Honours degree
+                Working at{" "}
+                <a href="https://www.alphero.com" target="_blank" rel="noopener" className="underline">
+                  Alphero
+                </a>
               </p>
+              <p>BSc (Hons) Computer Science at The University of Otago</p>
             </div>
           </div>
           <div className="flex flex-col xsm:flex-row xsm:justify-between justify-center xsm:items-end mt-6 mb-4 gap-y-6">
